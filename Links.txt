@@ -222,3 +222,16 @@ Platforms
 		Users
 	},
 }
+
+
+TokenInstructions
+{
+	
+	https://stackoverflow.com/questions/68191392/password-authentication-is-temporarily-disabled-as-part-of-a-brownout-please-us
+	
+	git remote add origin https://token@github.com/Gatoreno/SchoolProyectLinks.git
+
+	git remote add origin https://<token>@<git_url>.git
+
+
+}
