@@ -1,0 +1,213 @@
+Models
+{
+	Course:
+	{
+		cycle,  
+		year  
+	},
+
+	Clases: 
+	{
+		course, 
+		teacher,
+		subject,
+		schedule,
+		status,
+	},
+
+	Users: 
+	{
+		sub-admin 
+		{
+			allAdmin,
+			cannotDeleteAdmin		
+		},
+		teacher
+		{
+			assigment,
+			fullname,
+			username,
+			image_avatar,
+			date_created,			
+			salary,
+			status,
+			workedhours : {},
+			subjects : {}
+		}
+		,
+		student 
+		{		
+			course,
+			level,
+			username,
+			image_avatar,
+		},
+		tutor
+		{
+			fullname,
+			username,
+			image_avatar,
+			date_created,
+			status,
+		},
+		workforce
+		{
+			salary,
+			fullname,
+			assigment,
+			workedhours,
+		},	
+	},
+
+	Workedhours:
+	{
+		course,
+		assigment,
+		hours,
+		date,
+		iduser,
+	},
+	
+	FinalReportCard: 
+	{
+		course,
+		iduser,		
+		assigment_FinalReport: 
+		{
+			assigment:
+			{
+				MAth : 5,
+				Spanish : 10,
+				History : 8
+			}
+		}
+	},
+
+	ParcialReportCard: 
+	{
+		course,
+		assigment,
+		iduser,
+		idteacher,				
+		assigment_ParcialReport: 
+		{
+			homeworks : 5,
+			exam : 4,
+			other : 0.2,
+			final: 9.2
+		}
+	},
+
+	Subjects: 
+	{
+		course,
+		level
+	},
+
+	Notifications:
+	{
+		title,
+		subtitle,
+		reciver
+	},
+
+	Levels: 
+	{
+		elementary,
+		highschool,
+		preparatory,
+		college,
+		postgraduate
+	},
+
+	Payments: 
+	{ 
+		date_created , 
+		amount, 
+		concept , 
+		iduser,
+		payment_source: 
+		{
+			cash:true,
+			app:false,
+			app_mobile:false
+		} 
+	},
+
+	Status: 
+	{
+		overdue, 
+		uptodate, unsubscribe,open,close
+	},
+
+	Schedules: 
+	{
+		class,
+		level,
+		id_teacher
+	}
+}
+
+Dashboard / Mobile Activities
+{
+	
+	Dashboard_Admin:
+	{
+		CRUD : 
+		{
+			Models
+		}
+
+		Send_Notifications,
+
+		WorkForce_Queries
+		Students_Queries
+		Teachers_Queries
+	}
+
+	Students / Tutor
+	{
+		Queries:
+		{
+			info,
+			config,
+		},
+
+		Get_ParcialReport,
+		Get_FianlReport,
+		Recive_Notifications,
+		Do_Payments,
+		Get_Statements,
+	},
+
+	Teachers
+	{
+		CRUD_Clases,
+		UpLoad_Califications,
+		Create_Questionaries,
+		CreateClass_Notification,
+		UpdateClass_Notification,
+		Recive_Notifications,
+	},
+
+	WorkForce
+	{
+		Recive_Notifications
+	}
+}
+
+DB
+{
+	Dashboard
+	{
+		SQL
+	},
+
+	Users
+	{
+		FireBase (personal info & logs),
+		SQL Statements
+	}
+}
+
+Platforms
