@@ -211,3 +211,14 @@ DB
 }
 
 Platforms
+{
+	Mobile
+	{
+		Users
+	},
+	Web 
+	{
+		Admin_Dashboard,
+		Users
+	},
+}
