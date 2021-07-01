@@ -2,7 +2,7 @@ Models
 {
 	Course:
 	{
-		cycle,  
+		cycle andrew,  
 		year  
 	},
 
