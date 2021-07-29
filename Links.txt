@@ -9,67 +9,69 @@ Andrew
 
 	Clases: 
 	{
-		course, 
-		teacher,
-		subject,
-		schedule,
-		status,
+		course, -< select
+		teacher, -> select
+		subject, -> select
+		schedule, -> select
+		status, -> select
 	},
 
 	Users: 
 	{
-		sub-admin 
+		sub-admin (permiso) 
 		{
 			allAdmin,
 			cannotDeleteAdmin		
 		},
-		teacher
+		teacher 
 		{
-			assigment,
-			fullname,
-			username,
-			image_avatar,
-			date_created,			
-			salary,
-			status,
+			assigment, -> select
+			fullname, -> texto	
+			username, -> autogenerado = email + fullname (combinacion)
+			email -> texto
+			image_avatar, -> firebase
+			date_created, Timestamp(sql)		
+			salary, -> double
+			status, -> select
 			workedhours : {},
 			subjects : {}
 		}
 		,
 		student 
 		{		
-			course,
-			level,
-			username,
-			image_avatar,
+			course, -> select	
+			level, -> select
+			username, -> texto
+			image_avatar, -> firebase
 		},
 		tutor
 		{
-			fullname,
-			username,
-			image_avatar,
-			date_created,
-			status,
+			fullname, -> texto
+			username, -> autogenerado
+			image_avatar, -> firebase
+			date_created, -> Timestamp
+			status, -> select
+			student: {}
 		},
 		workforce
 		{
-			salary,
-			fullname,
-			assigment,
-			workedhours,
+			salary, -> double
+			fullname, -> texto
+			assigment, -> select
+			workedhours: {},
 		},	
 	},
 
 	Workedhours:
 	{
-		course,
-		assigment,
-		hours,
-		date,
-		iduser,
+		course, -> select
+		assigment, -> select u otro
+		hours, -> double
+		date, -> date
+		iduser, -> iduser
 	},
 	
-	FinalReportCard: 
+	awantala//FinalReportCard: 
 	{
 		course,
 		iduser,		
@@ -84,7 +86,7 @@ Andrew
 		}
 	},
 
-	ParcialReportCard: 
+ awantala// ParcialReportCard: 
 	{
 		course,
 		assigment,
@@ -101,20 +103,20 @@ Andrew
 
 	Subjects: 
 	{
-		course,
-		level
+		course, -> select
+		level -> select
 	},
 
-	Notifications:
+awantala// Notifications:
 	{
 		title,
 		subtitle,
 		reciver
 	},
 
-	Levels: 
+	Levels: (value)
 	{
-		elementary,
+		elementary, 
 		highschool,
 		preparatory,
 		college,
@@ -123,10 +125,10 @@ Andrew
 
 	Payments: 
 	{ 
-		date_created , 
-		amount, 
-		concept , 
-		iduser,
+		date_created , -> timestap
+		amount,  -> double
+		concept , -> select o texto
+		iduser, -> relacion
 		payment_source: 
 		{
 			cash:true,
@@ -135,7 +137,7 @@ Andrew
 		} 
 	},
 
-	Status: 
+	Status: (value)
 	{
 		overdue, 
 		uptodate, unsubscribe,open,close
@@ -143,13 +145,15 @@ Andrew
 
 	Schedules: 
 	{
-		class,
-		level,
-		id_teacher
+		class, -> select
+		level, -> select
+		id_teacher -> select
+		schedule: -> date(am-pm)
+		hours -> int
 	}
 }
 
-Dashboard / Mobile Activities
+Dashboard / Mobile Activities //awanta
 {
 	
 	Dashboard_Admin:
